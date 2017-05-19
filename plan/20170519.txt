@@ -1,0 +1,34 @@
+blackEverythingwhite: Aryan Bhatt, James Cruse-Mulhall, Eugene Thomas 
+APCS2 pd4 
+
+For today, May 19th, our plans are... 
+
+Which jobs are most crucial?
+- Beginning to develop an algorithm for creating the board in our project.
+- Creating the character and "square" classes to get the simplest stuff out of the way now. 
+- Fleshing out all of the rules of the game.
+ 
+Which components constitute core functionality (vs non-essential)?
+- Core functionality: 
+	+ The creation of a board (with squares that are empty, some are traps, some have lives, etc.) 
+	+ The creation of a character (with lives, the ability to move, etc.) 
+- Inessential: 
+	+ High amounts of visual using processing, it would look nice, but in theory, we can use the 
+	  terminal. 
+
+Which components are prerequisites for others?
+- The creation of a simple board (just a formation of squares) is the prerequisite for a more advanced board, 
+in which each square is unique. 
+- The creation of a simple character (that only has the ability to move) is the prerequisite for a mroe advanced
+character, who has the ability to interact with the board. 
+
+Which tasks can be delegated, and which must be collaboratively tackled?
+- Delegated Tasks: 
+	+ Creating the simple character and board classes. 
+	+ Sketching out the functionality of each square in the board.
+	+ Planning out the more advanced abilities of the character. 
+- Collaborative Tasks: 
+	+ Sketching out the algorithm to create a board while keeping in mind: 
+		=> The exit of the board has to be reached
+		=> Every component (obstacle and lives) have to be accessible
+		=> It must be a challenge to reach the board (must take a certain number of steps to reach it). 
