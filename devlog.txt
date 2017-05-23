@@ -10,4 +10,32 @@ May 17th:
      - The project proposal was created by Eugene, detailing the narrative behind the game as well as the tentative rules and regulations
 	 
 May 19th: 
-	 - Our repo was made, as well as the beginning of the development log and the plan file. 
+	 - Our repo was made, as well as the beginning of the development log and the plan file.
+
+May 23rd:
+    Today we ironed out details about structure of our game. We decided
+    that a 2D Array or Matrix would be best for our game. We also decided
+    use orthagonal distance to illuminate unvisited maze paths. We had a long
+    debate over using Aryan's 2 orthagonal squares away from the player vs my
+    using vision radius vs Eugenio's 1 orthagonal square from the player idea.
+    Was a productive day because we were able to put that design choice to bed as
+    well as let each other see what we were perceiving what the game would be in
+    our minds. Now I'm going to list some of the design choices I believe we have
+    made.
+    Player:
+	A sphere on the map, smaller than the tiles which comprise the paths/walls
+
+    Walls/Path:
+	Each shall be a tile on the map, or a rectangular space that designates whether
+	or not the player can occupy it. Each tile is illuminated when the player is 1
+	orthagonal square away.
+
+    Obstacles:
+	Obstacles will likely be smaller than the tiles in which they reside and cause the
+	player to restart the map they are on with one less life when hit by the player.
+	They may move within the tile they reside. We may also choose to implement an
+	intensity feature in which the closer a player gets to an obstacles, regardless of
+	whether it's square is illuminated, the brighter the outline of the obstacles will be.
+
+    Exit:
+	Randomly generated in each map and may or may not implement the intensity feature.
