@@ -1,0 +1,45 @@
+blackEverythingwhite: Aryan Bhatt, James Cruse-Mulhall, Eugene Thomas 
+APCS2 pd4 
+
+As of May 23, 2017, our plans are...
+
+Which jobs are most crucial?
+- The development of an algorithm to create the board in our project. This would entail...
+	=> Seeing if there is a possible solution (a maze-solving code that we might add in as a part of our prompt to play again). 
+	=> Seeing if the solution is too easy (an algorithm that sees how many moves it would take the character to optimally win the game, 
+	   if it is below that number, we must create a new board). 
+	=> Seeing all of the mechanisms for regaining a life as well as obstacles are accessible, not obstructed by walls. 
+
+- Creating the character and "square" classes, to identify what properties each of these things have. 
+	- Characters have...
+		=> The ability to move.
+		=> The property of being dead or alive.
+		=> A certain amount of lives 
+		*=> Constant Visuals (Shape [circle], Size)
+		*=> Varying Visuals (Color)
+		=> Position 
+		=> The ability to interact with the square at its position. 
+		
+	- Squares have...
+		=> Position
+		=> "Trichotomy": Travelled on, Not travelled on, Can be travelled on within one move. 
+		=> Can hold a wall, an obstacle, a life, or be blank. 
+		*=> Based on the "trichotomy" a color can be assigned. 
+
+Which components constitute core functionality (vs non-essential)?
+
+	- Core functionality: 
+		+ The creation of a board (with squares that are empty, some are traps, some have lives, etc.) 
+		+ The creation of a character (with lives, the ability to move, etc.) 
+	- Inessential: 
+		+ High amounts of visual using processing, it would look nice, but in theory, we can use the 
+		  terminal. 
+
+Which tasks can be delegated, and which must be collaboratively tackled?
+	- Delegated Tasks: 
+		+ Creating the simple character and square classes.  
+	- Collaborative Tasks: 
+		+ Sketching out the algorithm to create a board while keeping in mind: 
+			=> The exit of the board has to be reached
+			=> Every component (obstacle and lives) have to be accessible
+			=> It must be a challenge to reach the board (must take a certain number of steps to reach it). 

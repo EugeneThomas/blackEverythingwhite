@@ -6,22 +6,25 @@ S E E K E R S -- D E V L O G
 Important Dates:
 
 May 17th: 
-	 - The idea was created by our very own Jack, with Aryan and Eugene adding onto the idea to make the game more enjoyable.
+     - The idea was created by our very own Jack, with Aryan and Eugene adding onto the idea to make the game more enjoyable.
      - The project proposal was created by Eugene, detailing the narrative behind the game as well as the tentative rules and regulations
 	 
 May 19th: 
-	 - Our repo was made, as well as the beginning of the development log and the plan file.
+
+     - Our repo was made, as well as the beginning of the development log and the plan file.
 
 May 23rd:
+
     Today we ironed out details about structure of our game. We decided
     that a 2D Array or Matrix would be best for our game. We also decided
     use orthagonal distance to illuminate unvisited maze paths. We had a long
-    debate over using Aryan's 2 orthagonal squares away from the player vs my
-    using vision radius vs Eugenio's 1 orthagonal square from the player idea.
+    debate over using Aryan's 2 orthogonal squares away from the player vs my
+    using vision radius vs Eugenio's 1 orthogonal square from the player idea.
     Was a productive day because we were able to put that design choice to bed as
     well as let each other see what we were perceiving what the game would be in
     our minds. Now I'm going to list some of the design choices I believe we have
     made.
+
     Player:
 	A sphere on the map, smaller than the tiles which comprise the paths/walls
 
