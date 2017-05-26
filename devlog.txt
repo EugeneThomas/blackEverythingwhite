@@ -37,8 +37,28 @@ May 23rd:
 	Obstacles will likely be smaller than the tiles in which they reside and cause the
 	player to restart the map they are on with one less life when hit by the player.
 	They may move within the tile they reside. We may also choose to implement an
-	intensity feature in which the closer a player gets to an obstacles, regardless of
+		intensity feature in which the closer a player gets to an obstacles, regardless of
 	whether it's square is illuminated, the brighter the outline of the obstacles will be.
 
     Exit:
 	Randomly generated in each map and may or may not implement the intensity feature.
+
+May 25th:
+
+    Today a team representative  met with Mr. Brown in order to make sure that the team was on
+    the right track and to see if there were any measures they could take in the future to make
+    sure deliverables were delirvered on time and in good quality.
+
+    The solutions proposed were:
+    	- 2 group members will commit to print out hard copies
+	- Each assignment will be emailed to each group member as text and reviewed upon completion
+	line by line to ensure all directives have been accomplished
+	- Receipts for commits and work will be sent to other group members upon completion to ensure
+	that the assignment is done
+
+    The yellow light status of the project was also discussed. Mr. Brown said that the most rich part
+    of the proposal was the maze generation aspect. The idea of researching algorithms instead of trying
+    to blindly make one was reaffirmed. A group member later looked up different maze generation algorithms
+    and understood the process much better. The proposal to skype and discuss the algorithms was proposed
+    but did not work out due to schedule conflicts amongst the group. The plan is for the group to discuss the
+    algs today in class and make sure each member understands the algs so that we can better implement them.
