@@ -7,7 +7,7 @@ class wall extends cell {
     unvisited = false;
     fill(c);
     noStroke();
-    rect(x, y, 32, 32);
+    rect(x, y, 16, 16);
   }
   
   
