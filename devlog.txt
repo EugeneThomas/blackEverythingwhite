@@ -77,3 +77,5 @@ May 29th:
 
     I debugged the thing by changing the line that fills gaps between cells from creating a new cell to typecasting the wall
     as a cell. Added a bunch of comments to explain everything too. The maze generator is pretty cool.
+
+    Also just fixed the backtrack tracker and made it nicer.
