@@ -62,3 +62,16 @@ May 25th:
     and understood the process much better. The proposal to skype and discuss the algorithms was proposed
     but did not work out due to schedule conflicts amongst the group. The plan is for the group to discuss the
     algs today in class and make sure each member understands the algs so that we can better implement them.
+
+May 28th:
+
+    Today I got a nice breakfast and decided to code the maze alg in a park. Coding outside is actually quite calm
+    however a lack of wifi can stifle productivity. Luckily a hotspot saved me from not having access to the Processing
+    reference page. I coded the tile and wall classes with a wall being a child of a tile since a wall is just a type of
+    tile. I utilized the randomized depth first search algo to make the first maze generating algo but there is currently
+    a bug in which certain tiles that are unvisited are marked as visited, messing up the maze traversal. Not sure what's
+    causing it as of now but going to dive in tomorrow with the help of my team to resolve it. Eugene will be coding the
+    Character class tomorrow and I hope to get Aryan on debugging.
+
+May 29th:
+
