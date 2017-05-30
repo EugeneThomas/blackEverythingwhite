@@ -3,12 +3,14 @@ import java.util.Stack;
 cell[][] maze; //holds our maze
 Stack<cell> path; //holds the current path we have taken
 cell current; //current cell we are on in maze
+Character dude;
 int x; //current xcor within array [y][x]
 int y; //current ycor within array [y][x]
 int newX; //used for transitions with midX
 int newY; //used for transitions with midY
 int midX; //used for walls in between cells
 int midY; //used for walls in between cells
+
 
 void setup() {
   background(0, 0, 0);
@@ -34,6 +36,7 @@ void setup() {
   current = maze[2][2];
   path = new Stack();
   current.visit();
+  dude = new Character();
 }
 
 
@@ -80,8 +83,9 @@ void draw() {
   
   //otherwise we're done
   else {
+    dude.printCircle();
     delay(10000); //view ten seconds then...
-    exit();//bye bye window
+    //exit();//bye bye window
   }
 }
 

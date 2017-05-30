@@ -8,10 +8,14 @@ class Character {
   int yperm; 
   
   Character() { 
-    while ( maze[xpos/13][ypos/13].getColor() == color(0,0,256) ) { 
-      xpos = (int) (random(0, 417)); 
-      ypos = (int) (random(0, 417)); 
+    xperm = (int) (random(0, 417)); 
+    yperm = (int) (random(0, 417)); 
+    while ( maze[xperm/13][yperm/13].getColor() == color(0,0,0) ) { 
+      xperm = (int) (random(0, 417)); 
+      yperm = (int) (random(0, 417)); 
      } 
+    xpos = xperm;
+    ypos = yperm;
     lives = 3;
     int rand1 = (int) (random(0,256)); // Red Input
     int rand2 = (int) (random(0,256)); // Green Input
@@ -19,11 +23,11 @@ class Character {
     col = color(rand1, rand2, rand3); // Uses RGB Input for a new color 
   } 
   
-  void printCircles() { 
+  void printCircle() { 
     // If alive... 
     if (isAlive()) { 
       fill(col); // Sets color
-      ellipse(x,y,20,20); // Creates a circle
+      ellipse(x-50,y-50,100,100); // Creates a circle
     } 
   } 
   
@@ -59,15 +63,7 @@ class Character {
       ypos = yperm; 
     } 
   } 
-  
-  void printCircle() {
-    // If alive... 
-    if (isAlive()) { 
-    fill(col); // Sets color
-    ellipse(x,y,20,20); // Creates a circle
-    } 
-  } 
-  
+
   void run (int i) { 
     moveKey(i); 
     interact(); 
