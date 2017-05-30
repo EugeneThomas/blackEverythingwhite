@@ -22,5 +22,5 @@
 <li>Open up your terminal and enter whichever sub-directory you would like to use.</li>
 <li>Clone this repo:  <b>git clone git@github.com:EugeneThomas/blackEverythingwhite.git </b></li> 
 <li>Move into the given directory:  <b> cd blackEverythingwhite/maze_generator </b> </li> 
-<li>Run the processing file:   <b> processing maze_generator.pde </b> </li> 
+<li>Run the processing file:   <b> processing maze_generator.pde & </b> </li> 
 </ul> 
