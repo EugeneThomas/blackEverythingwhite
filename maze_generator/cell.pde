@@ -12,7 +12,7 @@ class cell {
     x = xpos;
     y = ypos;
     unvisited = true;
-    c = color(256, 256, 256);
+    c = color(0, 0, 0);
     fill(c);
     noStroke();
     rect(x, y, 16, 16);
