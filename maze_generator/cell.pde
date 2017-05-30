@@ -28,6 +28,10 @@ class cell {
     rect(x, y, 32, 32);
   }
   
+  protected color getColor() { 
+    return c;   
+  } 
+  
   private void setColor(color col) {
     c = col;
     fill(c);

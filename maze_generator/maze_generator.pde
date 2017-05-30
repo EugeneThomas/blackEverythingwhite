@@ -125,11 +125,10 @@ void getNext() {
   y = newY;
   current = ret;
   current.visit();
-}
+} 
 
 void keyPressed() { //PAUSES GENERATION
-  final int k = keyCode;
-
+  final int k eyCode;
   if (k == 'S')
     if (looping)  noLoop();
     else          loop();
