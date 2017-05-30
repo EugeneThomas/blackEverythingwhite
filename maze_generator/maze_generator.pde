@@ -146,7 +146,7 @@ void getNext() {
 } 
 
 void keyPressed() { //PAUSES GENERATION
-  final int k eyCode;
+  final int k = keyCode;
   if (k == 'S')
     if (looping)  noLoop();
     else          loop();
