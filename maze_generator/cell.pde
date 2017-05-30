@@ -15,7 +15,7 @@ class cell {
     c = color(256, 256, 256);
     fill(c);
     noStroke();
-    rect(x, y, 32, 32);
+    rect(x, y, 16, 16);
   }
   
   cell( int xpos, int ypos, boolean v ) {
@@ -25,7 +25,7 @@ class cell {
     c = color(0, 0, 256);
     fill(c);
     noStroke();
-    rect(x, y, 32, 32);
+    rect(x, y, 16, 16);
   }
   
   protected color getColor() { 
@@ -36,7 +36,7 @@ class cell {
     c = col;
     fill(c);
     noStroke();
-    rect( getX(), getY(), 32, 32);
+    rect( getX(), getY(), 16, 16);
   }
   
   protected int getX() {
@@ -53,7 +53,7 @@ class cell {
   }
   
   private void backTrack() {
-    setColor( color(256,0,0) );
+    setColor( color(0,256,0) );
   }
   
   protected boolean unvisited() {
