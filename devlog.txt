@@ -45,7 +45,7 @@ May 23rd:
 
 May 25th:
 
-    Today a team representative  met with Mr. Brown in order to make sure that the team was on
+    Today a team representative met with Mr. Brown in order to make sure that the team was on
     the right track and to see if there were any measures they could take in the future to make
     sure deliverables were delirvered on time and in good quality.
 
@@ -71,8 +71,14 @@ May 28th:
     reference page. I coded the tile and wall classes with a wall being a child of a tile since a wall is just a type of
     tile. I utilized the randomized depth first search algo to make the first maze generating algo but there is currently
     a bug in which certain tiles that are unvisited are marked as visited, messing up the maze traversal. Not sure what's
-    causing it as of now but going to dive in tomorrow with the help of my team to resolve it. Eugene will be coding the
-    Character class tomorrow and I hope to get Aryan on debugging.
+    causing it as of now but going to dive in tomorrow with the help of my team to resolve it.
+   
+    -Eugene
+    Due to a busy schedule, I did not have a machine at my disposal; however, while at work and then at my aunt's house, I thought
+    of how the character class would be utilized in the grand scheme of the project. At first, I followed the UML that was available, 
+    but I quickly learned that it was subject to change based on what I brainstormed. While brainstorming I thought of the three essential
+    questions: What? How? And Why? After being able to answer all three of those questions for various methods, I had a mental image of 
+    what I wanted the character class to be like. 
 
 May 29th:
 
@@ -80,8 +86,31 @@ May 29th:
     I debugged the thing by changing the line that fills gaps between cells from creating a new cell to typecasting the wall
     as a cell. Added a bunch of comments to explain everything too. The maze generator is pretty cool.
     Also just fixed the backtrack tracker and made it nicer.
+	
+    -Eugene 
+    After looking in shock and amazement at the maze generation, the Character class was written with various methods. One of the main 
+    issues I was having, was relating the Character class back with the maze that was generated (this stemming from my lack of understanding 
+    of the totality of Processing still). Luckily, Aryan fleshed out all of the issues I had and was truly the savior of the Character class. 
+    In addition, the readMe was written by me, detailing what our current deliverable presentation had relative to what we want when the assignment is due. 
 
 May 30th:
+ 
+     As a collective, we discussed what remains now that we have an algorithm for building a maze. In this discussion, we arrived to two 
+     classes of goals that we have: goals that are integral to the game and goals that can be used to robustify our game. Some of the goals
+     that are integral to the game include ironing out the issues of the character class and allowing it to interact with the entire game board 
+     with coded keys. One of the most interesting ideas that was spawned from this discussion in class was the fact that we should include multiple 
+     algorithms for developing a maze, each producing a maze of a different difficulty. At home, we completed the homework assignments, keeping in 
+     mind the ideas from class. 
 
-    -Jack
-    It appears that Aryan worked on the character class and Eugene worked on the README.
+
+
+
+
+
+
+
+
+
+
+
+
