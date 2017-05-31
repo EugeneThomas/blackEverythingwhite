@@ -1,0 +1,49 @@
+blackEverythingwhite: Aryan Bhatt, James Cruse-Mulhall, Eugene Thomas 
+APCS2 pd4 
+
+As of May 31, 2017, our plans are to
+
+/*
+Go through all the musts and then make a second pass for shoulds
+*/
+
+
+1. Develop the character class and make it work in compliance with the current maze generation alg 
+	- Characters must be able to
+	  + Move throughout the maze, any simple movement will do for now
+	  + Move without phasing through walls like Barry Allen
+	    => Either be aware of surrounding squares or check current tile color
+	    
+	- Characters should be able to
+	  + Win the game by getting to an end space
+	  + Lose the game by running out of time and dying
+	  + Reset position upon death
+	  + Move smoothly
+	    => Use dx, dy
+
+
+2. Develop a game class to have a timer and numLives tracker to run the actual game
+   	- The game should be able to
+	  + Track time
+	  + Track player lives
+	  + Reset upon player death
+	  + End if player loses / advance if player wins
+
+
+3. Have each group member code a maze generation algorithm ( different algs also =  different maze difficulty )
+
+(We want to do this collaboratively but each member will take a lead role in the development of at least one algo)
+
+   	- There should be implementations for
+	  + Kruskal's algorithm
+	  + Prim's algorithm
+	  + Recursive division algorithm
+
+	- If time after everything else
+	  + Implement more algorithms
+
+4. If time:
+
+	- Check game difficulty and add features such as:
+	  + Vision radius that you use to uncover map
+	  + Obstacles

@@ -65,6 +65,7 @@ May 25th:
 
 May 28th:
 
+    -Jack
     Today I got a nice breakfast and decided to code the maze alg in a park. Coding outside is actually quite calm
     however a lack of wifi can stifle productivity. Luckily a hotspot saved me from not having access to the Processing
     reference page. I coded the tile and wall classes with a wall being a child of a tile since a wall is just a type of
@@ -75,7 +76,12 @@ May 28th:
 
 May 29th:
 
+    -Jack
     I debugged the thing by changing the line that fills gaps between cells from creating a new cell to typecasting the wall
     as a cell. Added a bunch of comments to explain everything too. The maze generator is pretty cool.
-
     Also just fixed the backtrack tracker and made it nicer.
+
+May 30th:
+
+    -Jack
+    It appears that Aryan worked on the character class and Eugene worked on the README.
