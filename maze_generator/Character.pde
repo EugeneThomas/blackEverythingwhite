@@ -4,30 +4,30 @@ class Character {
   int lives; 
   int xpos = 80;
   int ypos = 80; 
-  int xperm; 
-  int yperm; 
+  int xperm = 80;  
+  int yperm = 80; 
   
   Character() { 
-    xperm = (int) (random(0, 417)); 
-    yperm = (int) (random(0, 417)); 
+    /* 
     while ( maze[xperm/13][yperm/13].getColor() == color(0,0,0) ) { 
       xperm = (int) (random(0, 417)); 
       yperm = (int) (random(0, 417)); 
      } 
-    xpos = xperm;
-    ypos = yperm;
+     */  
     lives = 3;
+    /* 
     int rand1 = (int) (random(0,256)); // Red Input
     int rand2 = (int) (random(0,256)); // Green Input
     int rand3 = (int) (random(0,256)); // Blue Input
-    col = color(rand1, rand2, rand3); // Uses RGB Input for a new color 
+    */ 
+    col = color(256, 0, 0); // Uses RGB Input for a new color 
   } 
   
   void printCircle() { 
     // If alive... 
     if (isAlive()) { 
       fill(col); // Sets color
-      ellipse(x-50,y-50,100,100); // Creates a circle
+      ellipse(x,y,10,10); // Creates a circle
     } 
   } 
   
@@ -40,11 +40,11 @@ class Character {
   void moveKey(int i) {
     // Up: 0 
     if (i == 0) { 
-      ypos += 2; 
+      ypos -= 2; 
     } 
     // Down: 1
     else if (i == 1) { 
-      ypos -= 2; 
+      ypos += 2; 
     } 
     // Left: 2
     else if (i == 2) { 
@@ -70,4 +70,23 @@ class Character {
     printCircle(); 
   } 
   
-} 
+  void keyPressed() { 
+    if (key == CODED) { 
+       if (keyCode == UP) { 
+         run(0); 
+       } 
+       else if (keyCode == DOWN) { 
+         run(1); 
+       }
+       else if (keyCode == LEFT) { 
+         run(2); 
+       }
+       else if (keyCode == RIGHT) { 
+         run(3); 
+       } 
+    }  
+    // ELSE FOR WASD
+  } 
+  
+  
+}

@@ -79,12 +79,12 @@ void draw() {
     //System.out.println(y);
     
     current.backTrack();
+
   }
   
   //otherwise we're done
   else {
     dude.printCircle();
-    delay(10000); //view ten seconds then...
     //exit();//bye bye window
   }
 }
