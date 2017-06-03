@@ -1,92 +1,72 @@
-class Character { 
+class character { 
   
-  color col; 
+  color c; 
   int lives; 
-  int xpos = 80;
-  int ypos = 80; 
-  int xperm = 80;  
-  int yperm = 80; 
+  int xpos;
+  int ypos; 
+  int xperm;  
+  int yperm; 
+  int arrx;
+  int arry;
   
-  Character() { 
-    /* 
-    while ( maze[xperm/13][yperm/13].getColor() == color(0,0,0) ) { 
-      xperm = (int) (random(0, 417)); 
-      yperm = (int) (random(0, 417)); 
-     } 
-     */  
+  character() { 
     lives = 3;
-    /* 
-    int rand1 = (int) (random(0,256)); // Red Input
-    int rand2 = (int) (random(0,256)); // Green Input
-    int rand3 = (int) (random(0,256)); // Blue Input
-    */ 
-    col = color(256, 0, 0); // Uses RGB Input for a new color 
+    xpos = 40;
+    ypos = 40;
+    xperm = 40;
+    yperm = 40;
+    arrx = 2;
+    arry = 2;
+    c = color(256, 0, 256); // Uses RGB Input for a new color 
   } 
   
-  void printCircle() { 
-    // If alive... 
-    if (isAlive()) { 
-      fill(col); // Sets color
-      ellipse(x,y,10,10); // Creates a circle
-    } 
-  } 
+  void printChar() {
+    noStroke();
+    fill(c);
+    ellipse(xpos, ypos, 10, 10);
+  }
   
-  boolean isAlive() {
-    return lives != 0;   
-  } 
+  void up() {
+    ypos -= 16;
+    arry -= 1;
+  }
   
-  // Temp: NOT GRADUAL MOVEMENT
+  void down() {
+    ypos += 16;
+    arry += 1;
+  }
   
-  void moveKey(int i) {
-    // Up: 0 
-    if (i == 0) { 
-      ypos -= 2; 
-    } 
-    // Down: 1
-    else if (i == 1) { 
-      ypos += 2; 
-    } 
-    // Left: 2
-    else if (i == 2) { 
-      xpos -= 2; 
-    } 
-    // Right: 3
-    else if (i == 3) { 
-      xpos += 2; 
-    } 
-  } 
-
-  void interact() { 
-    if (maze[xpos/13][ypos/13].getColor() != color(0,0,256)) { 
-      lives -= 1; 
-      xpos = xperm; 
-      ypos = yperm; 
-    } 
-  } 
-
-  void run (int i) { 
-    moveKey(i); 
-    interact(); 
-    printCircle(); 
-  } 
+  void left() {
+    xpos -= 16;
+    arrx -= 1;
+  }
   
-  void keyPressed() { 
-    if (key == CODED) { 
-       if (keyCode == UP) { 
-         run(0); 
-       } 
-       else if (keyCode == DOWN) { 
-         run(1); 
-       }
-       else if (keyCode == LEFT) { 
-         run(2); 
-       }
-       else if (keyCode == RIGHT) { 
-         run(3); 
-       } 
-    }  
-    // ELSE FOR WASD
-  } 
+  void right() {
+    xpos += 16;
+    arrx += 1;
+  }
   
-  
+  void validDirection(int i, cell[][] maze) {
+    if (i == 0 && maze[arry-1][arrx].getColor() != color(0,0,0) ) {
+      System.out.println("up");
+      up();
+    }
+    
+    else if (i == 1 && maze[arry+1][arrx].getColor() != color(0,0,0) ) {
+      System.out.println("down");
+      down();
+    }
+    
+    if (i == 2 && maze[arry][arrx-1].getColor() != color(0,0,0) ) {
+      System.out.println("left");
+      left();
+    }
+    
+    if (i == 3 && maze[arry][arrx+1].getColor() != color(0,0,0) ) {
+      System.out.println("right");
+      right();
+    }
+    System.out.println(arry + "," + arrx);
+  }
+      
 }

@@ -3,7 +3,7 @@ import java.util.Stack;
 cell[][] maze; //holds our maze
 Stack<cell> path; //holds the current path we have taken
 cell current; //current cell we are on in maze
-Character dude;
+character dude;
 int x; //current xcor within array [y][x]
 int y; //current ycor within array [y][x]
 int newX; //used for transitions with midX
@@ -36,7 +36,7 @@ void setup() {
   current = maze[2][2];
   path = new Stack();
   current.visit();
-  dude = new Character();
+  dude = new character();
 }
 
 
@@ -84,7 +84,7 @@ void draw() {
   
   //otherwise we're done
   else {
-    dude.printCircle();
+    dude.printChar();
     //exit();//bye bye window
   }
 }
@@ -149,9 +149,29 @@ void getNext() {
   current.visit();
 } 
 
+/*
 void keyPressed() { //PAUSES GENERATION
   final int k = keyCode;
   if (k == 'S')
     if (looping)  noLoop();
     else          loop();
 }
+*/
+
+  void keyPressed() { 
+    if (key == CODED) { 
+       if (keyCode == UP) { 
+         dude.validDirection(0, maze);
+       } 
+       else if (keyCode == DOWN) { 
+         dude.validDirection(1, maze);
+       }
+       else if (keyCode == LEFT) { 
+         dude.validDirection(2, maze); 
+       }
+       else if (keyCode == RIGHT) { 
+         dude.validDirection(3, maze); 
+       } 
+    }
+    // ELSE FOR WASD
+  } 

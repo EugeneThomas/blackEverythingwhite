@@ -30,7 +30,7 @@ class cell {
   
   protected color getColor() { 
     return c;   
-  } 
+  }
   
   private void setColor(color col) {
     c = col;
