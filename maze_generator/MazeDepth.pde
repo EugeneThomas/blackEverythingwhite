@@ -6,6 +6,7 @@ cell[][] maze; //holds our maze
 Stack<cell> path; //holds the current path we have taken
 cell current; //current cell we are on in maze
 character dude;
+boolean generated;
 int x; //current xcor within array [y][x]
 int y; //current ycor within array [y][x]
 int newX; //used for transitions with midX
@@ -33,6 +34,7 @@ int midY; //used for walls in between cells
   }
   //start at upperleft hand corner
   //init vars
+  generated = false;
   x = 2;
   y = 2;
   current = maze[2][2];
@@ -42,6 +44,7 @@ int midY; //used for walls in between cells
 }
 
 void generate() {  
+  generated = true;
   //delay(100); //stops .1 second each frame for better visualization
   
   while ( maze[2][2].getColor() != color(0,256,0) ) {
@@ -148,6 +151,10 @@ void displayMaze() {
       maze[i][j].displayCell();
     }
   }
+}
+
+boolean generated() {
+  return generated;
 }
 
 }
