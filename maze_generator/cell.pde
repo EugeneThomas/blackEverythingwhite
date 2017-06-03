@@ -34,9 +34,7 @@ class cell {
   
   private void setColor(color col) {
     c = col;
-    fill(c);
-    noStroke();
-    rect( getX(), getY(), 16, 16);
+    displayCell();
   }
   
   protected int getX() {
@@ -58,6 +56,12 @@ class cell {
   
   protected boolean unvisited() {
     return unvisited;
+  }
+  
+  protected void displayCell() {
+    fill(c);
+    noStroke();
+    rect(x, y, 16, 16);
   }
   
 }
