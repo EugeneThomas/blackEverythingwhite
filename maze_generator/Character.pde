@@ -48,25 +48,41 @@ class character {
   
   void validDirection(int i, cell[][] maze) {
     if (i == 0 && maze[arry-1][arrx].getColor() != color(0,0,0) ) {
-      System.out.println("up");
+      //System.out.println("up");
       up();
     }
     
     else if (i == 1 && maze[arry+1][arrx].getColor() != color(0,0,0) ) {
-      System.out.println("down");
+      //System.out.println("down");
       down();
     }
     
     if (i == 2 && maze[arry][arrx-1].getColor() != color(0,0,0) ) {
-      System.out.println("left");
+      //System.out.println("left");
       left();
     }
     
     if (i == 3 && maze[arry][arrx+1].getColor() != color(0,0,0) ) {
-      System.out.println("right");
+      //System.out.println("right");
       right();
     }
-    System.out.println(arry + "," + arrx);
+    //System.out.println(arry + "," + arrx);
+  }
+  
+  int getArrX() {
+    return arrx;
+  }
+  
+  int getArrY() {
+    return arry;
+  }
+  
+  int getX() {
+    return xpos;
+  }
+  
+  int getY() {
+    return ypos;
   }
       
 }

@@ -1,22 +1,38 @@
-MazeDepth maze; //holds our maze
+GenMaze maze; //holds our maze
 character dude;
+int level;
 
 
 void setup() {
   background(0, 0, 0);
-  size(880, 880);
+  size(336, 336);
   
-  maze = new MazeDepth();
-  maze.generate();
+  maze = new MazeDepth(width, height);
   dude = new character();
 }
 
 
 
 void draw() {  
-  background(0);
-  maze.displayMaze();
-  dude.printChar();
+  if ( !maze.generated() ) {
+    maze.generate();
+    if ( maze.generated() ) {
+      maze.makeExit();
+    }
+  }
+  
+  else {
+    background(0);
+    maze.displayMaze();
+    dude.printChar();
+    
+    //System.out.println( (dude.getX() - 8) + " , " + (dude.getY() - 8) );
+    //System.out.println( (maze.getExit().getX()) + " , " + (maze.getExit().getY()) );
+    
+    if ( (dude.getY() - 8) == maze.getExit().getY()  && (dude.getX() - 8) == maze.getExit().getX() ) {
+      exit();
+    }
+  }
 }
 
 /*

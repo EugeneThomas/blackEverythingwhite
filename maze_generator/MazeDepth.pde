@@ -1,31 +1,35 @@
 import java.util.Stack;
 
-class MazeDepth {
+class MazeDepth implements GenMaze {
   
 cell[][] maze; //holds our maze
 Stack<cell> path; //holds the current path we have taken
 cell current; //current cell we are on in maze
 character dude;
-boolean generated;
 int x; //current xcor within array [y][x]
 int y; //current ycor within array [y][x]
 int newX; //used for transitions with midX
 int newY; //used for transitions with midY
 int midX; //used for walls in between cells
 int midY; //used for walls in between cells
+int numRow;
+int numCol;
+cell exit;
 
 
- MazeDepth() {
+ MazeDepth(int w, int h) {
   //start at upperleft hand corner
   //init vars
-  maze = new cell[55][55];
-  for ( int i = 0; i < 55; i++ ) {
-    for ( int j = 0; j < 55; j++ ) {
+  numRow = h / 16;
+  numCol = w / 16;
+  maze = new cell[numRow][numCol];
+  for ( int i = 0; i < numRow; i++ ) {
+    for ( int j = 0; j < numCol; j++ ) {
       maze[i][j] = new wall(j*16, i*16); //generates matrix of walls
     }
   }
-  for ( int i = 2; i < 54; i += 2 ) {
-    for ( int j = 2; j < 54; j += 2 ) {
+  for ( int i = 2; i < numRow-1; i += 2 ) {
+    for ( int j = 2; j < numCol-1; j += 2 ) {
       maze[i][j] = new cell(j*16, i*16);
       //creates cells 2 spaces apart with a 2 cell
       //buffer zone around the edges, helps with out of bounds
@@ -34,7 +38,6 @@ int midY; //used for walls in between cells
   }
   //start at upperleft hand corner
   //init vars
-  generated = false;
   x = 2;
   y = 2;
   current = maze[2][2];
@@ -44,41 +47,39 @@ int midY; //used for walls in between cells
 }
 
 void generate() {  
-  generated = true;
   //delay(100); //stops .1 second each frame for better visualization
-  
-  while ( maze[2][2].getColor() != color(0,256,0) ) {
+ 
   //if current cell has neighbors
-    if ( hasNeighbors() ) {
-      //choose a path
-      getNext();
-    }
+  if ( hasNeighbors() ) {
+    //choose a path
+    getNext();
+  }
   
-    //otherwise if we can backtrack
-    else if ( !path.isEmpty() ) {
-      //get last placement and go through draw again
-      current.backTrack(); //shows backtracking process
+  //otherwise if we can backtrack
+  else if ( !path.isEmpty() ) {
+    //get last placement and go through draw again
+    current.backTrack(); //shows backtracking process
     
-      current = path.pop();
+    current = path.pop();
     
-      newX = current.getX() / 16;
-      newY = current.getY() / 16;
+    newX = current.getX() / 16;
+    newY = current.getY() / 16;
     
-      midX = (newX + x)/2;
-      midY = (newY + y)/2;
+    midX = (newX + x)/2;
+    midY = (newY + y)/2;
     
-      maze[midY][midX].backTrack();
+    maze[midY][midX].backTrack();
     
-      x = newX;
-      y = newY;
-      //System.out.println("current popped");
-      //System.out.println(x);
-      //System.out.println(y);
+    x = newX;
+    y = newY;
     
-      current.backTrack();
+    //System.out.println("current popped");
+    //System.out.println(x);
+    //System.out.println(y);
+    
+    current.backTrack();
 
     }
-  }
 }
 
 
@@ -154,7 +155,18 @@ void displayMaze() {
 }
 
 boolean generated() {
-  return generated;
+  return maze[2][2].getColor() == color(0,256,0);
+}
+
+void makeExit() {
+  int randX = (int) ( Math.random() * ( (numCol - 4) / 2 ) ) * 2 + 2;
+  int randY = (int) ( Math.random() * ( (numRow - 4) / 2 ) ) * 2 + 2;
+  maze[randY][randX].setColor( color(0,256,256) );
+  exit = maze[randY][randX];
+}
+
+cell getExit() {
+  return exit;
 }
 
 }
