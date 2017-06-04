@@ -59,4 +59,18 @@ void keyPressed() { //PAUSES GENERATION
          dude.validDirection(3, maze.getMaze()); 
        } 
     }
+    else {
+      if (key == 'w') { 
+         dude.validDirection(0, maze.getMaze());
+       } 
+       else if (key == 's') { 
+         dude.validDirection(1, maze.getMaze());
+       }
+       else if (key == 'a') { 
+         dude.validDirection(2, maze.getMaze()); 
+       }
+       else if (key == 'd') { 
+         dude.validDirection(3, maze.getMaze()); 
+       } 
+    }
   } 
