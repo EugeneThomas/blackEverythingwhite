@@ -50,7 +50,7 @@ class Ellers implements GenMaze {
   // M A Z E   G E N E R A T I O N   T I M E... 
   // ======================================================================
   
-   public void mGen() { 
+   public void generate() { 
      for (int i = 0; i < rowMaze-1; i++) { 
        if (i != 0) { 
          for (int j = 0; j < currentRow.length; i++) {
@@ -143,11 +143,10 @@ class Ellers implements GenMaze {
         for(int i=1; i<currentRow.length-1; i+=2){
 
             if(currentRow[i] instanceof wall && !(currentRow[i-1].equals(currentRow[i+1]))){
-                currentRow[i] = ; // check 
+                currentRow[i] = new cell(track*16, i*16, false, greenType); // check 
                 cell nextToGo = currentRow[i-1].minGreen(currentRow[i+1]); 
                 cell afterThat = currentRow[i-1].maxGreen(currentRow[i+1]); 
                 for(int j=0; j<currentRow.length; j++){
-
                     if(currentRow[j].equals(afterThat))
                         currentRow[j] = nextToGo;
                 }
@@ -158,10 +157,10 @@ class Ellers implements GenMaze {
         /* add the last row to the feild */
         for(int k=0; k<currentRow.length; k++){
             if(currentRow[k] instanceof wall){
-                Maze[row-2][k+1] = new wall(); // check 
+                Maze[row-2][k+1] = new wall(k+1, row-2);  
             }
             else{
-               Maze[row-2][k+1] = new cell(); // check 
+               Maze[row-2][k+1] = new cell(k+1, row-2, true);  
             }
         }
    } 
