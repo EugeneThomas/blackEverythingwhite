@@ -77,6 +77,24 @@ class cell {
     return bool5; 
   } 
   
+  public cell maxGreen(cell c) { 
+    if (green(c.getColor()) > green(getColor())) { 
+      return c; 
+    } 
+    else { 
+      return this; 
+    } 
+  } 
+  
+  public cell minGreen(cell c) { 
+    if (green(c.getColor()) < green(getColor())) { 
+      return c; 
+    } 
+    else { 
+      return this; 
+    } 
+  } 
+  
   protected void displayCell() {
     fill(c);
     noStroke();

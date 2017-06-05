@@ -56,6 +56,7 @@ class Ellers implements GenMaze {
          for (int j = 0; j < currentRow.length; i++) {
            currentRow[j] = nextRow[j];
            nextRow[j] = new cell(j*16, i*16, false, 1); 
+           track++; 
          } 
        } 
        
@@ -74,39 +75,95 @@ class Ellers implements GenMaze {
      
      for (int l = 0; l < currentRow.length; l++) { 
        if (currentRow[l] instanceof wall) { 
-         Maze[2*q+1][l+1] = new wall((2*q+1)*16,(l+1)*16); 
-         Maze[2*q+2][l+1] = new wall((2*q+2)*16,(l+1)*16);
+         Maze[2*i+1][l+1] = new wall((2*i+1)*16,(l+1)*16); 
+         Maze[2*i+2][l+1] = new wall((2*i+2)*16,(l+1)*16);
        } 
        else { 
-         Maze[2*q+1][l+1] = new cell((2*q+1)*16,(l+1)*16,true); 
-         if (currentRow[l].equals(nextRow[k])) { 
-           Maze[2*q+2][l+1] = new cell((2*q+2)*16,(l+1)*16,true); 
+         Maze[2*i+1][l+1] = new cell((2*i+1)*16,(l+1)*16,true); 
+         if (currentRow[l].equals(nextRow[l])) { 
+           Maze[2*i+2][l+1] = new cell((2*i+2)*16,(l+1)*16,true); 
          } 
        } 
      } 
-     makeLast(); 
-     open(); 
+     makeLast();  
      } 
    }
    
    public void joinPaths() { 
-     
-     
+     float f = random(1); 
+     for (int i = 1; i < currentRow.length-1; i+=2) { 
+       if (currentRow[1] instanceof wall && !currentRow[i-1].equals(currentRow[i+1]) && f < .5) { 
+           currentRow[i] = new cell(track*16, i*16, true); 
+           cell nextToGo = currentRow[i-1].minGreen(currentRow[i+1]); 
+           cell afterThat = currentRow[i-1].maxGreen(currentRow[i+1]); 
+           for (int j = 0; j < currentRow.length; j++) { 
+             if (currentRow[j].equals(afterThat)) { 
+               currentRow[j] = nextToGo; 
+             } 
+           } 
+       } 
+     } 
    } 
    
    public void cut() { 
      
-   
+        int b;    
+        int end;          
+        boolean vertical; 
+        int i;
+        b = 0;
+        
+        while(end != currentRow.length-1)
+        { 
+            /* find the end of this section */
+            i=b;
+            while(i<currentRow.length-1 && currentRow[i].equals(currentRow[i+2])){
+                i+=2;
+            }
+            end = i;
+            vertical = false;
+            while(!vertical){
+                for(int j=b; j<=end; j+=2){
+
+                    if(){
+                        nextRow[j] = currentRow[j];
+                        vertical = true;
+                    }
+                }
+            }
+            b = end+2;  //go to the next section in the row
+        }
    } 
    
    public void makeLast() { 
-     
-     
-   } 
-   
-   public void open() { 
-     
-     
+      for(int i=0; i<currentRow.length; i++){
+            currentRow[i] = nextRow[i];
+        }
+
+        for(int i=1; i<currentRow.length-1; i+=2){
+
+            if(currentRow[i] instanceof wall && !(currentRow[i-1].equals(currentRow[i+1]))){
+                currentRow[i] = ; // check 
+                cell nextToGo = currentRow[i-1].minGreen(currentRow[i+1]); 
+                cell afterThat = currentRow[i-1].maxGreen(currentRow[i+1]); 
+                for(int j=0; j<currentRow.length; j++){
+
+                    if(currentRow[j].equals(afterThat))
+                        currentRow[j] = nextToGo;
+                }
+            }
+        }
+
+
+        /* add the last row to the feild */
+        for(int k=0; k<currentRow.length; k++){
+            if(currentRow[k] instanceof wall){
+                Maze[row-2][k+1] = new wall(); // check 
+            }
+            else{
+               Maze[row-2][k+1] = new cell(); // check 
+            }
+        }
    } 
    
   // ======================================================================
