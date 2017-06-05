@@ -30,7 +30,7 @@ void draw() {
     //System.out.println( (maze.getExit().getX()) + " , " + (maze.getExit().getY()) );
     
     if ( (dude.getY() - 8) == maze.getExit().getY()  && (dude.getX() - 8) == maze.getExit().getX() ) {
-      exit();
+      clear();
     }
   }
 }
