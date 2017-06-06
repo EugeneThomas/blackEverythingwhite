@@ -18,7 +18,6 @@ int radius = 16;//16 pixel radius
 void setup() {
   background(0, 0, 0);
   size(336, 336);
-  
   dude = new character();
   chosen = false;
   level = 1;
@@ -43,11 +42,11 @@ void draw() {
     }
     
     else if ( level == 2 ) {
-      //maze = new MazeEllers(width, height);
+      maze = new MazeEllers(width, height);
     }
     
     else if ( level == 3 ) {
-      //maze = new MazePrim(width, height);
+      //maze = new MazeDepth(width, height);
     }
     
     chosen = true;
@@ -76,7 +75,7 @@ void draw() {
       if ( (dude.getY() - 8) == maze.getExit().getY()  && (dude.getX() - 8) == maze.getExit().getX() ) {
         clear();
         chosen = false;
-        //level += 1;
+        level += 1;
         dude.reset();
         resetClock();
         levelsPassed += 1;
