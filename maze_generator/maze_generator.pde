@@ -1,6 +1,7 @@
 GenMaze maze; //holds our maze
 character dude;
 int level;
+boolean chosen;
 
 
 void setup() {
@@ -8,29 +9,60 @@ void setup() {
   size(336, 336);
   
   maze = new MazeDepth(width, height);
+  maze = new MazeDepth(width, height);
   dude = new character();
+  chosen = false;
+  level = 1;
 }
 
 
 
 void draw() {  
-  if ( !maze.generated() ) {
-    maze.generate();
-    if ( maze.generated() ) {
-      maze.makeExit();
+  if ( dude.getLives() < 1 ) {
+    clear();
+    //youLose function print
+  }
+  
+  else if ( !chosen ) {
+    
+    if ( level == 1 ) {
+      maze = new MazeDepth(width, height);
     }
+    
+    else if ( level == 2 ) {
+      //maze = new MazeEllers(width, height);
+    }
+    
+    else if ( level == 3 ) {
+      //maze = new MazePrim(width, height);
+    }
+    
+    chosen = true;
   }
   
   else {
-    background(0);
-    maze.displayMaze();
-    dude.printChar();
     
-    //System.out.println( (dude.getX() - 8) + " , " + (dude.getY() - 8) );
-    //System.out.println( (maze.getExit().getX()) + " , " + (maze.getExit().getY()) );
+    if ( !maze.generated() ) {
+      maze.generate();
+      if ( maze.generated() ) {
+        maze.makeExit();
+      }
+    }
     
-    if ( (dude.getY() - 8) == maze.getExit().getY()  && (dude.getX() - 8) == maze.getExit().getX() ) {
-      clear();
+    else {
+      background(0);
+      maze.displayMaze();
+      dude.printChar();
+      
+      //System.out.println( (dude.getX() - 8) + " , " + (dude.getY() - 8) );
+      //System.out.println( (maze.getExit().getX()) + " , " + (maze.getExit().getY()) );
+      
+      if ( (dude.getY() - 8) == maze.getExit().getY()  && (dude.getX() - 8) == maze.getExit().getX() ) {
+        clear();
+        chosen = false;
+        //level += 1;
+        dude.reset();
+      }
     }
   }
 }

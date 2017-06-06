@@ -1,4 +1,4 @@
-class Ellers implements GenMaze {
+/*class Ellers implements GenMaze {
   
   int row; 
   int col; 
@@ -115,7 +115,7 @@ class Ellers implements GenMaze {
         
         while(end != currentRow.length-1)
         { 
-            /* find the end of this section */
+            // find the end of this section /
             i=b;
             while(i<currentRow.length-1 && currentRow[i].equals(currentRow[i+2])){
                 i+=2;
@@ -154,7 +154,7 @@ class Ellers implements GenMaze {
         }
 
 
-        /* add the last row to the feild */
+        // add the last row to the feild 
         for(int k=0; k<currentRow.length; k++){
             if(currentRow[k] instanceof wall){
                 Maze[row-2][k+1] = new wall(k+1, row-2);  
@@ -199,3 +199,4 @@ class Ellers implements GenMaze {
   // ======================================================================
   
 } 
+*/

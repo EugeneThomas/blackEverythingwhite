@@ -84,5 +84,16 @@ class character {
   int getY() {
     return ypos;
   }
+  
+  int getLives() {
+    return lives;
+  }
+  
+  void reset() {
+    xpos = xperm;
+    ypos = yperm;
+    arrx = 2;
+    arry = 2;
+  }
       
 }
