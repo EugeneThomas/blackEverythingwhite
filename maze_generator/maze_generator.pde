@@ -1,18 +1,31 @@
 GenMaze maze; //holds our maze
 character dude;
 int level;
+int levelsPassed;
 boolean chosen;
+
+//time vars
+int time;
+int wait = 30000;
+int clockCenterX;
+int clockCenterY;
+float angleIncrement = (40 * PI) / wait;
+float timeAngle = 3 * PI / 2;
+int radius = 16;
+
 
 
 void setup() {
   background(0, 0, 0);
   size(336, 336);
   
-  maze = new MazeDepth(width, height);
-  maze = new MazeDepth(width, height);
   dude = new character();
   chosen = false;
   level = 1;
+  levelsPassed = 0;
+  
+  clockCenterX = width / 2;
+  clockCenterY = 16;
 }
 
 
@@ -42,16 +55,19 @@ void draw() {
   
   else {
     
-    if ( !maze.generated() ) {
-      maze.generate();
-      if ( maze.generated() ) {
-        maze.makeExit();
+    if ( !maze.generated() ) { //run while maze is generating
+      maze.generate(); //further generate
+      if ( maze.generated() ) { //if done generating
+        maze.makeExit(); //add a lil exit
+        
+        time = millis(); //start timer for character
       }
     }
     
     else {
-      background(0);
+      //background(0);
       maze.displayMaze();
+      drawClock();
       dude.printChar();
       
       //System.out.println( (dude.getX() - 8) + " , " + (dude.getY() - 8) );
@@ -62,6 +78,12 @@ void draw() {
         chosen = false;
         //level += 1;
         dude.reset();
+        levelsPassed += 1;
+      }
+      
+      else if ( millis() - time >= wait ) { //if run out of time ( currently 30 seconds )
+        dude.die(); //dude dies
+        time = millis(); //restart timer
       }
     }
   }
@@ -105,4 +127,11 @@ void keyPressed() { //PAUSES GENERATION
          dude.validDirection(3, maze.getMaze()); 
        } 
     }
-  } 
+  }
+  
+  void drawClock() {
+    stroke(256, 256, 256);
+    line( clockCenterX, clockCenterY, clockCenterX + (radius * cos(timeAngle)), clockCenterY + (radius * sin(timeAngle)) );
+    timeAngle += angleIncrement;
+  }
+    

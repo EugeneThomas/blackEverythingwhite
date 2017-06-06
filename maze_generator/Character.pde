@@ -95,5 +95,10 @@ class character {
     arrx = 2;
     arry = 2;
   }
+  
+ void die() {
+   lives -= 1;
+   reset();
+ }
       
 }
