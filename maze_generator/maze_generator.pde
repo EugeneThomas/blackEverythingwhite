@@ -5,13 +5,13 @@ int levelsPassed;
 boolean chosen;
 
 //time vars
-int time;
-int wait = 30000;
-int clockCenterX;
-int clockCenterY;
-float angleIncrement = (40 * PI) / wait;
-float timeAngle = 3 * PI / 2;
-int radius = 16;
+int time; //tracks time round starts in millis
+int wait = 30000;//timePerRound
+int clockCenterX;//clock X coordinate
+int clockCenterY;//clock Y coordinate
+float angleIncrement = (1000 * 2 * PI) / (wait * frameRate * 6); // (coverts to seconds * 2pi (circle) ) / ( timePerRound * frameRate * balancing factor )
+float timeAngle = 3 * PI / 2;//begin upright 90 degrees
+int radius = 16;//16 pixel radius
 
 
 
@@ -78,12 +78,14 @@ void draw() {
         chosen = false;
         //level += 1;
         dude.reset();
+        resetClock();
         levelsPassed += 1;
       }
       
       else if ( millis() - time >= wait ) { //if run out of time ( currently 30 seconds )
         dude.die(); //dude dies
         time = millis(); //restart timer
+        resetClock();
       }
     }
   }
@@ -133,5 +135,9 @@ void keyPressed() { //PAUSES GENERATION
     stroke(256, 256, 256);
     line( clockCenterX, clockCenterY, clockCenterX + (radius * cos(timeAngle)), clockCenterY + (radius * sin(timeAngle)) );
     timeAngle += angleIncrement;
+  }
+  
+  void resetClock() {
+    timeAngle = 3 * PI / 2;
   }
     
