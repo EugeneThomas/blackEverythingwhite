@@ -133,6 +133,13 @@ void keyPressed() { //PAUSES GENERATION
   
   void drawClock() {
     stroke(256, 256, 256);
+    fill(0);
+    ellipse( clockCenterX, clockCenterY, 32, 32 );
+    
+    stroke(256, 256, 0);
+    line( clockCenterX, clockCenterY, clockCenterX, clockCenterY - radius );
+    
+    stroke(256, 256, 256);
     line( clockCenterX, clockCenterY, clockCenterX + (radius * cos(timeAngle)), clockCenterY + (radius * sin(timeAngle)) );
     timeAngle += angleIncrement;
   }
