@@ -107,10 +107,10 @@ class MazeEllers implements GenMaze {
   void makeExit() { 
     boolean bool = true; 
     while (bool) { 
-      int rand1 = (int) (random(row/2) + row/2); 
-      int rand2 = (int) (random(col/2) + col/2); 
+      int rand1 = (int) (random(row/4) + 3*row/4); 
+      int rand2 = (int) (random(col/4) + 3*col/4); 
       if (!(Maze[rand1][rand2] instanceof wall)) { 
-        Maze[rand1][rand2].setColor(color(0,128,256)); 
+        Maze[rand1][rand2].setColor(color(0,256,256)); 
         bool = false; 
         exit = Maze[rand1][rand2];
       } 

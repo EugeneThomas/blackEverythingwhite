@@ -170,8 +170,8 @@ boolean generated() {
   void makeExit() { 
     boolean bool = true; 
     while (bool) { 
-      int rand1 = (int) (random(maze.length/2) + maze.length/2); 
-      int rand2 = (int) (random(maze[0].length/2) + maze[0].length/2); 
+      int rand1 = (int) (random(maze.length/4) + 3*maze.length/4); 
+      int rand2 = (int) (random(maze[0].length/4) + 3*maze[0].length/4); 
       if (!(maze[rand1][rand2] instanceof wall)) { 
         maze[rand1][rand2].setColor(color(0,256,256)); 
         bool = false; 
