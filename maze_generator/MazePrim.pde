@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+/*
 class MazePrim implements GenMaze {
   
   cell[][] maze; //holds our maze
@@ -84,7 +85,5 @@ void generate() {
 boolean hasNeighbors() {
   return maze[y+2][x].unvisited() || maze[y-2][x].unvisited() || maze[y][x-2].unvisited() || maze[y][x+2].unvisited();
 }
-
-
-  
 }
+*/

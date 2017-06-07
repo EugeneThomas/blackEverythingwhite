@@ -42,18 +42,90 @@ class MazeEllers implements GenMaze {
   void randomlyJoinVertical() { 
     for (int i = 3; i < row-1; i+=2) { 
      for (int j = 2; j < col; j+=2) { 
-        if (Maze[i+1][j] instanceof cell && Maze[i-1][j] instanceof cell) { 
+        if (!(Maze[i+1][j] instanceof wall) && !(Maze[i-1][j] instanceof wall)) { 
            Maze[i][j] = new cell(j*16,i*16,true);
         } 
      } 
     }
   } 
   
+  void removeOutliersEight() { 
+     for (int i = 3; i < row-2; i++) { 
+       for (int j = 3; j < col-2; j++) { 
+         float f = random(1); 
+         boolean bool = !(Maze[i][j-1] instanceof wall) && !(Maze[i][j+1] instanceof wall);
+         bool = bool && !(Maze[i+1][j+1] instanceof wall) && !(Maze[i+1][j-1] instanceof wall);
+         bool = bool && !(Maze[i+1][j] instanceof wall) && !(Maze[i-1][j-1] instanceof wall);
+         bool = bool && !(Maze[i-1][j] instanceof wall) && !(Maze[i-1][j+1] instanceof wall);
+         if (bool) { 
+           if (i < row/2 && j < col/2) { 
+             if (f < .17) { 
+               Maze[i-1][j] = new wall(i*16-16, j*16); 
+             }
+             else if (f < .34) { 
+               Maze[i][j-1] = new wall(i*16, j*16-16); 
+             }
+             else if (f < .66) { 
+               Maze[i][j+1] = new wall(i*16, j*16+16);
+             } 
+             else { 
+               Maze[i+1][j] = new wall(i*16+16, j*16);
+             }
+           } 
+           else if (!(i < row/2) && j < col/2) { 
+             if (f < .17) { 
+               Maze[i][j-1] = new wall(i*16, j*16-16);
+             }
+             else if (f < .34) { 
+               Maze[i+1][j] = new wall(i*16+16, j*16);
+             }
+             else if (f < .66) { 
+               Maze[i-1][j] = new wall(i*16-16, j*16);
+             } 
+             else { 
+               Maze[i][j+1] = new wall(i*16, j*16+16);
+             }
+           }
+           else if (i < row/2 && !(j < col/2)) { 
+             if (f < .17) { 
+               Maze[i-1][j] = new wall(i*16-16, j*16);
+             }
+             else if (f < .34) { 
+               Maze[i][j+1] = new wall(i*16, j*16+16);
+             }
+             else if (f < .66) { 
+               Maze[i][j-1] = new wall(i*16, j*16-16);
+             } 
+             else { 
+               Maze[i+1][j] = new wall(i*16+16, j*16);
+             }
+           }
+           else { 
+             if (f < .17) { 
+               Maze[i+1][j] = new wall(i*16+16, j*16);
+             }
+             else if (f < .34) { 
+               Maze[i][j+1] = new wall(i*16, j*16+16);
+             }
+             else if (f < .66) { 
+               Maze[i-1][j] = new wall(i*16-16, j*16);
+             } 
+             else { 
+               Maze[i][j-1] = new wall(i*16, j*16-16);
+             }
+           }
+         }
+       } 
+     } 
+  } 
+
+  
   // From the MazeDepth Code...
   // ======================================================================
   void generate() { 
     randomlyJoinHorizontal();
     randomlyJoinVertical(); 
+    removeOutliersEight(); 
     displayMaze(); 
     generated = true; 
   } 
@@ -67,10 +139,16 @@ class MazeEllers implements GenMaze {
   }
   
   void makeExit() { 
-    int randX = (int) ( Math.random() * ( (col - 4) / 2 ) ) * 2 + 2;
-    int randY = (int) ( Math.random() * ( (row - 4) / 2 ) ) * 2 + 2;
-    Maze[randY][randX].setColor( color(0,256,256) );
-    exit = Maze[randY][randX];
+    boolean bool = true; 
+    while (bool) { 
+      int rand1 = (int) (random(row/2) + row/2); 
+      int rand2 = (int) (random(col/2) + col/2); 
+      if (!(Maze[rand1][rand2] instanceof wall)) { 
+        Maze[rand1][rand2].setColor(color(0,256,256)); 
+        bool = false; 
+        exit = Maze[rand1][rand2];
+      } 
+    }
   } 
   
   boolean generated() { 

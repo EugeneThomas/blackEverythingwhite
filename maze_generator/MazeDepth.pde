@@ -158,13 +158,18 @@ boolean generated() {
   return maze[2][2].getColor() == color(0,256,0);
 }
 
-void makeExit() {
-  int randX = (int) ( Math.random() * ( (numCol - 4) / 2 ) ) * 2 + 2;
-  int randY = (int) ( Math.random() * ( (numRow - 4) / 2 ) ) * 2 + 2;
-  maze[randY][randX].setColor( color(0,256,256) );
-  exit = maze[randY][randX];
-}
-
+  void makeExit() { 
+    boolean bool = true; 
+    while (bool) { 
+      int rand1 = (int) (random(maze.length/2) + maze.length/2); 
+      int rand2 = (int) (random(maze[0].length/2) + maze[0].length/2); 
+      if (!(maze[rand1][rand2] instanceof wall)) { 
+        maze[rand1][rand2].setColor(color(0,256,256)); 
+        bool = false; 
+        exit = maze[rand1][rand2];
+      } 
+    }
+  }
 cell getExit() {
   return exit;
 }
