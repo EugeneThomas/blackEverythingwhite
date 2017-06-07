@@ -9,4 +9,7 @@ class wall extends cell {
     noStroke();
     rect(x, y, 16, 16);
   }
+  color getColor() {
+    return c;
+  }
 }

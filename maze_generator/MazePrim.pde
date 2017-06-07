@@ -83,8 +83,9 @@ void generate() {
     y = newY;
   }
   if (!path.isEmpty()) {
-    current = path.get((int) (Math.random() * path.size()));
-  }
+    //current = path.get((int) (Math.random() * path.size()));
+    current = path.get(path.size() - 1);
+  }  
 }
 boolean hasNeighbors() {
     newX = current.getX() / 16;
@@ -136,6 +137,7 @@ void getNext() {
   
   maze[midY][midX] = (cell) maze[midY][midX];//typecast wall to cell
   maze[midY][midX].visit();//turn wall to visited cell
+  path.add(maze[midY][midX]);
 
   ret.visit();
   path.add(ret);
