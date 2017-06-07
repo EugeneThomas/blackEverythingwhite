@@ -11,20 +11,19 @@ int clockCenterX;//clock X coordinate
 int clockCenterY;//clock Y coordinate
 float angleIncrement = (1000 * 2 * PI) / (wait * frameRate * 6); // (coverts to seconds * 2pi (circle) ) / ( timePerRound * frameRate * balancing factor )
 float timeAngle = 3 * PI / 2;//begin upright 90 degrees
-int radius = 16;//16 pixel radius
-
-
+int radius = 16;//16 pixel radius 
+String liveStr; 
 
 void setup() {
   background(0, 0, 0);
-  size(336, 336);
+  size(336, 400);
   dude = new character();
   chosen = false;
   level = 1;
   levelsPassed = 0;
-  
-  clockCenterX = width / 2;
-  clockCenterY = 16;
+  clockCenterX = (int) (width / 2.5);
+  clockCenterY = 350;
+  liveStr = "" + dude.getLives(); 
 }
 
 
@@ -32,21 +31,20 @@ void setup() {
 void draw() {  
   if ( dude.getLives() < 1 ) {
     clear();
-    //youLose function print
   }
   
   else if ( !chosen ) {
     
     if ( level == 1 ) {
-      maze = new MazeDepth(width, height);
+      maze = new MazeDepth(width, height-64);
     }
     
     else if ( level == 2 ) {
-      maze = new MazeEllers(width, height);
+      maze = new MazeEllers(width, height-64);
     }
     
     else if ( level == 3 ) {
-    //  maze = new MazePrim(width, height);
+    //  maze = new MazePrim(width, height-64);
     }
     
     chosen = true;
@@ -62,13 +60,19 @@ void draw() {
         time = millis(); //start timer for character
       }
     }
+
     
     else {
       //background(0);
       maze.displayMaze();
       drawClock();
       dude.printChar();
-      
+      textSize(16);
+      text("TIME:", 50, 355); 
+      text("LIVES:", 200, 355);
+      textSize(25); 
+      text(liveStr, 260, 357);
+      fill(0);
       //System.out.println( (dude.getX() - 8) + " , " + (dude.getY() - 8) );
       //System.out.println( (maze.getExit().getX()) + " , " + (maze.getExit().getY()) );
       
@@ -82,7 +86,18 @@ void draw() {
       }
       
       else if ( millis() - time >= wait ) { //if run out of time ( currently 30 seconds )
+        clear(); 
         dude.die(); //dude dies
+        liveStr = "" + dude.getLives(); 
+        maze.displayMaze();
+        drawClock();
+        dude.printChar();
+        textSize(16);
+        text("TIME:", 50, 355); 
+        text("LIVES:", 200, 355);
+        textSize(25); 
+        text(liveStr, 260, 357);
+        fill(0);
         time = millis(); //restart timer
         resetClock();
       }

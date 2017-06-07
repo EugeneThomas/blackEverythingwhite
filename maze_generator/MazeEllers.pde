@@ -39,7 +39,7 @@ class MazeEllers implements GenMaze {
     } 
   } 
   
-  void randomlyJoinVertical() { 
+  void joinVertical() { 
     for (int i = 3; i < row-1; i+=2) { 
      for (int j = 2; j < col; j+=2) { 
         if (!(Maze[i+1][j] instanceof wall) && !(Maze[i-1][j] instanceof wall)) { 
@@ -115,18 +115,16 @@ class MazeEllers implements GenMaze {
              }
            }
          }
-       } 
+       }    
      } 
   } 
-
   
   // From the MazeDepth Code...
   // ======================================================================
   void generate() { 
     randomlyJoinHorizontal();
-    randomlyJoinVertical(); 
-    removeOutliersEight(); 
-    displayMaze(); 
+    joinVertical();
+    removeOutliersEight();   
     generated = true; 
   } 
   
