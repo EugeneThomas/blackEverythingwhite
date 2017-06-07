@@ -13,7 +13,6 @@ float angleIncrement = (1000 * 2 * PI) / (wait * frameRate * 6); // (coverts to 
 float timeAngle = 3 * PI / 2;//begin upright 90 degrees
 int radius = 16;//16 pixel radius 
 String liveStr; 
-int ctr;
 
 void setup() {
   background(0, 0, 0);
@@ -25,7 +24,6 @@ void setup() {
   clockCenterX = (int) (width / 2.5);
   clockCenterY = 400;
   liveStr = "" + dude.getLives(); 
-  ctr = 0;
 }
 
 
@@ -55,8 +53,6 @@ void draw() {
     
     if ( !maze.generated() ) { //run while maze is generating
       maze.generate(); //further generate
-      System.out.println(ctr);
-      ctr += 1;
       if ( maze.generated() ) { //if done generating
         maze.makeExit(); //add a lil exit
         
