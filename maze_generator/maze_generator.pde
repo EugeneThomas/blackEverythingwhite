@@ -40,7 +40,7 @@ void draw() {
       maze = new MazeDepth(width, height-114);
     }
     
-    else if ( level == 2 ) {
+    else if ( level == 8 ) {
       maze = new MazeEllers(width, height-114);
     }
     
