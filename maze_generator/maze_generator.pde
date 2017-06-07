@@ -16,13 +16,13 @@ String liveStr;
 
 void setup() {
   background(0, 0, 0);
-  size(336, 400);
+  size(336, 450);
   dude = new character();
   chosen = false;
   level = 1;
   levelsPassed = 0;
   clockCenterX = (int) (width / 2.5);
-  clockCenterY = 350;
+  clockCenterY = 400;
   liveStr = "" + dude.getLives(); 
 }
 
@@ -36,17 +36,16 @@ void draw() {
   else if ( !chosen ) {
     
     if ( level == 1 ) {
-      maze = new MazeDepth(width, height-64);
+      maze = new MazeDepth(width, height-114);
     }
     
     else if ( level == 2 ) {
-      maze = new MazeEllers(width, height-64);
+      maze = new MazeEllers(width, height-114);
     }
     
     else if ( level == 3 ) {
-    //  maze = new MazePrim(width, height-64);
+    //  maze = new MazePrim(width, height-114);
     }
-    
     chosen = true;
   }
   
@@ -68,10 +67,20 @@ void draw() {
       drawClock();
       dude.printChar();
       textSize(16);
-      text("TIME:", 50, 355); 
-      text("LIVES:", 200, 355);
+      text("TIME:", 50, 405); 
+      text("LIVES:", 200, 405);
       textSize(25); 
-      text(liveStr, 260, 357);
+      text(liveStr, 260, 407);
+      textSize(30); 
+      if (level == 1) { 
+        text("DEPTH-FIRST SEARCH", 10, 360);
+      } 
+      else if (level == 2) { 
+        text("ELLER'S ALGORITHM", 20, 360);
+      } 
+      else if (level == 3) { 
+        text("PRIM'S ALGORITHM", 30, 360);
+      } 
       fill(0);
       //System.out.println( (dude.getX() - 8) + " , " + (dude.getY() - 8) );
       //System.out.println( (maze.getExit().getX()) + " , " + (maze.getExit().getY()) );
@@ -93,10 +102,10 @@ void draw() {
         drawClock();
         dude.printChar();
         textSize(16);
-        text("TIME:", 50, 355); 
-        text("LIVES:", 200, 355);
+        text("TIME:", 50, 405); 
+        text("LIVES:", 200, 405);
         textSize(25); 
-        text(liveStr, 260, 357);
+        text(liveStr, 260, 407);
         fill(0);
         time = millis(); //restart timer
         resetClock();

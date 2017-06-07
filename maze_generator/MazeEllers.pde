@@ -119,12 +119,28 @@ class MazeEllers implements GenMaze {
      } 
   } 
   
+  void removeOutliers() { 
+     for (int i = 3; i < row-2; i++) { 
+       for (int j = 3; j < col-2; j++) { 
+         boolean bool = (Maze[i][j-1] instanceof wall) && (Maze[i][j+1] instanceof wall);
+         bool = bool && (Maze[i+1][j+1] instanceof wall) && (Maze[i+1][j-1] instanceof wall);
+         bool = bool && (Maze[i+1][j] instanceof wall) && (Maze[i-1][j-1] instanceof wall);
+         bool = bool && (Maze[i-1][j] instanceof wall) && (Maze[i-1][j+1] instanceof wall);
+         bool = bool && !(Maze[i][j] instanceof wall);
+         if (bool) { 
+           Maze[i][j] = new wall(16*j, 16*i); 
+         } 
+       } 
+     } 
+  } 
+  
   // From the MazeDepth Code...
   // ======================================================================
-  void generate() { 
+  void generate() {
     randomlyJoinHorizontal();
     joinVertical();
-    removeOutliersEight();   
+    removeOutliersEight(); 
+    removeOutliers(); 
     generated = true; 
   } 
   
