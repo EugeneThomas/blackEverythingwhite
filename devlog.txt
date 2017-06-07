@@ -1,9 +1,28 @@
 blackEverythingwhite: Aryan Bhatt, James Cruse-Mulhall, Eugene Thomas 
 APCS2 pd4 
 
-S E E K E R S -- D E V L O G 
+S E E K E R  -- D E V L O G 
 
-Important Dates:
+REFLECTION: 
+
+Obstacles Overcome (and hw!)
+One of the main obstacles that was overcome was how to actually write these maze generation 
+Algorithms. With the aid of the interwebs, visualization tools, and more visualization tools, we were 
+Able to utilize recursive methods to encode four different maze generation algorithms (Depth-Search, Eller’s, Prim’s, and Tree-Growing). 
+Unresolved Issues
+	Luckily Jack and Aryan were there, but Eugene finished the project still not completely sure how to 
+code the Eller’s algorithm even though he understood the basic gist of it. 
+Cool Stuff Learned (conceptual and/or practical)
+	One of the most fun things that our group realized throughout this project was the ability to write text 
+on the world in Processing, as well as Jack’s code that denoted a moving clock using trigonometry. 
+Mid-development Design Changes (and why!)
+	One of the best decisions our group ever made was turning this game more into a presentation on 
+the different kinds of maze algorithms instead of a game of traversing a maze. In doing this, we were able to utilize our skills from second semester APCS while having a fun factor remain. 
+Lessons Learned (...which you might apply to future projects, CS or otherwise)
+	One of the greatest lessons we learned about this project was that sometimes doing 
+something that is more minimalist can lead to a more cohesive and a more rewarding result. We, at this point, believe that adding obstacles and a more rigorous time aspect would have cheapened the game to a point where it would have taken away from the message of teaching students about the different maze-generation algorithms. This can be applicable to all projects and life at-large with the saying “less is more.” 
+
+IMPORTANT DATES: 
 
 May 17th: 
      - The idea was created by our very own Jack, with Aryan and Eugene adding onto the idea to make the game more enjoyable.
@@ -102,14 +121,6 @@ May 30th:
      algorithms for developing a maze, each producing a maze of a different difficulty. At home, we completed the homework assignments, keeping in 
      mind the ideas from class. 
 
-May 31st: 
-
-     
-
-June 1st: 
-
-    
-
 June 2nd: 
 
     Today was the day that both Aryan and Eugene were going to be absent. Thus, Jack decided to spend that period fleshing out his maze generation algorithm
@@ -121,19 +132,23 @@ June 3rd:
     Today, we finalized which maze generation responsibilities each of us had. As you already know, Jack was responsible for the Depth Search Maze Generation Algorithm
     that was utilized in our first level. Eugene is in charge of the Eller's method for maze generation which involves subdividing sets at random and joining the two sets
     at random. For Eller's those sets are then continuously connected vertically down the maze and once you reach the bottom of the maze, you are done. Aryan is in charge
-    of doing Prim's algorithm which select a random square and gradiates outward. 
+    of doing Prim's algorithm which select a random square and radiates outward. 
 
 June 4th: 
 
     - Eugene 
-    Coding Eller's was a huge challenge 
-
+    Coding Eller's was a huge challenge. There is nothing else to that because almost no progress was made in the coding of this algorithm. It was a stressful weekend, and it really impeded on my ability to perform this task well at all. I 
+ 
+After Eugene’s testimony, the other two group members continued improving upon parts of the project that were already coded, especially the character class and the maze depth class as well. 
 June 5th: 
+
+	All of us could agree (especially Aryan and Eugene) that this was a day stock-full of breakthroughs about each of the two algorithms that remained to be done. It was the day that we needed and an integral part of our project. 
 
 
 
 June 6th: 
 
+	As a group of three, all of us finished our portions of the project. We were somewhat pressed for time, but with preserved nonetheless and learned a lot about time management and algorithms along the way. In addition, we were able to also include a tree-growing algorithm which we did not think we would be able to make. 
 
 
 
