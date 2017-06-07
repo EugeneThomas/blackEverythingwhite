@@ -57,19 +57,21 @@ void generate() {
   
   //otherwise if we can backtrack
   else {
-    current.backTrack();
-    if (!maze[y+1][x].unvisited()) {
+    current.backTrack(); 
+    /*
+    if (maze[y+1][x].getColor() == color(0,0,256)) {
       maze[y+1][x].backTrack();
     }
-    if (!maze[y-1][x].unvisited()) {
+    if (maze[y-1][x].getColor() == color(0,0,256)) {
       maze[y+1][x].backTrack();
     }
-    if (!maze[y][x-1].unvisited()) {
+    if (maze[y][x-1].getColor() == color(0,0,256)) {
       maze[y+1][x].backTrack();
     }
-    if (!maze[y][x+1].unvisited()) {
+    if (maze[y][x+1].getColor() == color(0,0,256)) {
       maze[y+1][x].backTrack();
     }
+*/
     for (int i = 0;i < path.size(); i++) {
       if (path.get(i).equals2(current)) {
         path.remove(i);
@@ -80,10 +82,15 @@ void generate() {
     x = newX;
     y = newY;
   }
+  if (!path.isEmpty()) {
     current = path.get((int) (Math.random() * path.size()));
+  }
 }
-  
 boolean hasNeighbors() {
+    newX = current.getX() / 16;
+    newY = current.getY() / 16;
+    x = newX;
+    y = newY;
   return maze[y+2][x].unvisited() || maze[y-2][x].unvisited() || maze[y][x-2].unvisited() || maze[y][x+2].unvisited();
 }
 
@@ -92,7 +99,10 @@ void getNext() {
   cell ret;
   //System.out.println("current pushed");
   ret = current;//give ret an init value that passes first case
-  
+    newX = current.getX() / 16;
+    newY = current.getY() / 16;
+    x = newX;
+    y = newY;
   while ( !ret.unvisited() ) {
     //while our new current has been visited
     //look for another
