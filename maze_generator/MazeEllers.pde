@@ -60,58 +60,58 @@ class MazeEllers implements GenMaze {
          if (bool) { 
            if (i < row/2 && j < col/2) { 
              if (f < .17) { 
-               Maze[i-1][j] = new wall(i*16-16, j*16); 
+               Maze[i-1][j] = new wall(j*16, i*16-16); 
              }
              else if (f < .34) { 
-               Maze[i][j-1] = new wall(i*16, j*16-16); 
+               Maze[i][j-1] = new wall(j*16-16, i*16); 
              }
              else if (f < .66) { 
-               Maze[i][j+1] = new wall(i*16, j*16+16);
+               Maze[i][j+1] = new wall(j*16+16, i*16);
              } 
              else { 
-               Maze[i+1][j] = new wall(i*16+16, j*16);
+               Maze[i+1][j] = new wall(j*16, i*16+16);
              }
            } 
            else if (!(i < row/2) && j < col/2) { 
              if (f < .17) { 
-               Maze[i][j-1] = new wall(i*16, j*16-16);
+               Maze[i][j-1] = new wall(j*16-16, i*16);
              }
              else if (f < .34) { 
-               Maze[i+1][j] = new wall(i*16+16, j*16);
+               Maze[i+1][j] = new wall(j*16, i*16+16);
              }
              else if (f < .66) { 
-               Maze[i-1][j] = new wall(i*16-16, j*16);
+               Maze[i-1][j] = new wall(j*16, i*16-16);
              } 
              else { 
-               Maze[i][j+1] = new wall(i*16, j*16+16);
+               Maze[i][j+1] = new wall(j*16+16, i*16);
              }
            }
            else if (i < row/2 && !(j < col/2)) { 
              if (f < .17) { 
-               Maze[i-1][j] = new wall(i*16-16, j*16);
+               Maze[i-1][j] = new wall(j*16, i*16-16);
              }
              else if (f < .34) { 
-               Maze[i][j+1] = new wall(i*16, j*16+16);
+               Maze[i][j+1] = new wall(j*16+16, i*16);
              }
              else if (f < .66) { 
-               Maze[i][j-1] = new wall(i*16, j*16-16);
+               Maze[i][j-1] = new wall(j*16-16, i*16);
              } 
              else { 
-               Maze[i+1][j] = new wall(i*16+16, j*16);
+               Maze[i+1][j] = new wall(j*16, i*16+16);
              }
            }
            else { 
              if (f < .17) { 
-               Maze[i+1][j] = new wall(i*16+16, j*16);
+               Maze[i+1][j] = new wall(j*16, i*16+16);
              }
              else if (f < .34) { 
-               Maze[i][j+1] = new wall(i*16, j*16+16);
+               Maze[i][j+1] = new wall(j*16+16, i*16);
              }
              else if (f < .66) { 
-               Maze[i-1][j] = new wall(i*16-16, j*16);
+               Maze[i-1][j] = new wall(j*16, i*16-16);
              } 
              else { 
-               Maze[i][j-1] = new wall(i*16, j*16-16);
+               Maze[i][j-1] = new wall(j*16-16, i*16);
              }
            }
          }
