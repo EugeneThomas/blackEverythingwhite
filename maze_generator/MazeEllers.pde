@@ -16,7 +16,7 @@ class MazeEllers implements GenMaze {
     col = w/16; 
     generated = false; 
     Maze = new cell[row][col]; 
-    newSetVal = 1;
+    newSetVal = 100;
     rowGen = 2;
     
     // FILL IT UP 
@@ -77,6 +77,7 @@ class MazeEllers implements GenMaze {
   // From the MazeDepth Code...
   // ======================================================================
   void generate() {  
+    frameRate(1);
     if ( rowGen < row-3 ) {    
     randomlyJoinHorizontal(rowGen);
     joinVertical(rowGen);
@@ -89,6 +90,7 @@ class MazeEllers implements GenMaze {
       joinBottom();
       turnGreen();
       generated = true;
+      frameRate(60);
     }
       
   } 
