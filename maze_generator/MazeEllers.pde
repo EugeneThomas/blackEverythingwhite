@@ -83,7 +83,7 @@ class MazeEllers implements GenMaze {
     joinVertical(rowGen);
     unDropSet();
     rowGen += 2; 
-    System.out.println(rowGen);
+    //System.out.println(rowGen);
     }
     
     else {

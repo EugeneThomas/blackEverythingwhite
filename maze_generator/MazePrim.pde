@@ -85,14 +85,21 @@ void generate() {
     y = newY;
   }
   if (!path.isEmpty()) {
-    if (level == 3)
+    double rand = Math.random();
+    if (level == 6)
     current = path.get(path.size()*3/4);
-    else if (level == 4)
+    else if (level == 7)
     current = path.get(0);
-    else if (level == 5)
+    else if (level == 1)
     current = path.get(path.size() - 1);
-    else
-    current = path.get((int) (Math.random() * path.size()));
+    else {
+      if (rand < (level-1)/4.0) {
+        current = path.get((int) (Math.random() * path.size()));
+      }
+      else {
+        current = path.get(path.size() - 1);
+      }
+    }
   }  
 }
 boolean hasNeighbors() {

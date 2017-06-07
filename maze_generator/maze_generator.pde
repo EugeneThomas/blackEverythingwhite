@@ -89,10 +89,10 @@ void draw() {
       if (level == 1) { 
         text("DEPTH-FIRST SEARCH", 10, 360);
       } 
-      else if (level == 2) { 
+      else if (level == 8) { 
         text("ELLER'S ALGORITHM", 20, 360);
       } 
-      else if (level >= 6) { 
+      else if (level == 5) { 
         text("PRIM'S ALGORITHM", 30, 360);
       } 
       else {
