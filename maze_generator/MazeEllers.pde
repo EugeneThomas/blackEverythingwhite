@@ -147,6 +147,9 @@ class MazeEllers implements GenMaze {
   void displayMaze() {
     for ( int i = 0; i < Maze.length; i++ ) {
       for ( int j = 0; j < Maze[0].length; j++ ) {
+        if (!(Maze[i][j] instanceof wall) && Maze[i][j].getColor() != color(0,128,256)) { 
+          Maze[i][j].setColor(color(0,256,0)); 
+        } 
         Maze[i][j].displayCell();
       }
     }
@@ -158,7 +161,7 @@ class MazeEllers implements GenMaze {
       int rand1 = (int) (random(row/2) + row/2); 
       int rand2 = (int) (random(col/2) + col/2); 
       if (!(Maze[rand1][rand2] instanceof wall)) { 
-        Maze[rand1][rand2].setColor(color(0,256,256)); 
+        Maze[rand1][rand2].setColor(color(0,128,256)); 
         bool = false; 
         exit = Maze[rand1][rand2];
       } 

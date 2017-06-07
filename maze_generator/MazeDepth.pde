@@ -164,7 +164,7 @@ boolean generated() {
       int rand1 = (int) (random(maze.length/2) + maze.length/2); 
       int rand2 = (int) (random(maze[0].length/2) + maze[0].length/2); 
       if (!(maze[rand1][rand2] instanceof wall)) { 
-        maze[rand1][rand2].setColor(color(0,256,256)); 
+        maze[rand1][rand2].setColor(color(0,128,256)); 
         bool = false; 
         exit = maze[rand1][rand2];
       } 
