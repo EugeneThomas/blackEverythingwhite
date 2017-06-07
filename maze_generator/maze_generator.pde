@@ -38,7 +38,7 @@ void draw() {
   else if ( !chosen ) {
     
     if ( level == 1 ) {
-      maze = new MazePrim(width, height-114);
+      maze = new MazeDepth(width, height-114);
     }
     
     else if ( level == 2 ) {
