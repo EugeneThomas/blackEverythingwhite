@@ -19,7 +19,7 @@ void setup() {
   size(336, 450);
   dude = new character();
   chosen = false;
-  level = 3;
+  level = 1;
   levelsPassed = 0;
   clockCenterX = (int) (width / 2.5);
   clockCenterY = 400;
