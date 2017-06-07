@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-/*
 class MazePrim implements GenMaze {
   
   cell[][] maze; //holds our maze
@@ -43,12 +42,13 @@ class MazePrim implements GenMaze {
   current = maze[2][2];
   path = new ArrayList<cell>();
   current.visit();
+  path.add(current);
   dude = new character();
   }
 
 void generate() {  
   //delay(100); //stops .1 second each frame for better visualization
- 
+
   //if current cell has neighbors
   if ( hasNeighbors() ) {
     //choose a path
@@ -56,34 +56,112 @@ void generate() {
   }
   
   //otherwise if we can backtrack
-  else if ( !path.isEmpty() ) {
-    //get last placement and go through draw again
-    current.backTrack(); //shows backtracking process
-    
-    current = path.pop();
-    
+  else {
+    current.backTrack();
+    if (!maze[y+1][x].unvisited()) {
+      maze[y+1][x].backTrack();
+    }
+    if (!maze[y-1][x].unvisited()) {
+      maze[y+1][x].backTrack();
+    }
+    if (!maze[y][x-1].unvisited()) {
+      maze[y+1][x].backTrack();
+    }
+    if (!maze[y][x+1].unvisited()) {
+      maze[y+1][x].backTrack();
+    }
+    for (int i = 0;i < path.size(); i++) {
+      if (path.get(i).equals2(current)) {
+        path.remove(i);
+      }
+    }
     newX = current.getX() / 16;
     newY = current.getY() / 16;
-    
-    midX = (newX + x)/2;
-    midY = (newY + y)/2;
-    
-    maze[midY][midX].backTrack();
-    
     x = newX;
     y = newY;
-    
-    //System.out.println("current popped");
-    //System.out.println(x);
-    //System.out.println(y);
-    
-    current.backTrack();
-
-    }
+  }
+    current = path.get((int) (Math.random() * path.size()));
 }
   
 boolean hasNeighbors() {
   return maze[y+2][x].unvisited() || maze[y-2][x].unvisited() || maze[y][x-2].unvisited() || maze[y][x+2].unvisited();
 }
+
+void getNext() {
+  double rand;
+  cell ret;
+  //System.out.println("current pushed");
+  ret = current;//give ret an init value that passes first case
+  
+  while ( !ret.unvisited() ) {
+    //while our new current has been visited
+    //look for another
+    rand = Math.random();
+    
+    if ( rand < .25 ) {
+      ret = maze[y+2][x];
+    }
+    else if ( rand < 0.5 ) {
+      ret = maze[y-2][x];
+    }
+    else if ( rand < 0.75 ) {
+      ret = maze[y][x-2];
+    }
+    else {
+      ret = maze[y][x+2];
+    }
+  }
+  
+  newX = ret.getX() / 16;//new array xcor
+  newY = ret.getY() / 16;//new array ycor
+  
+  //System.out.println(newX);
+  //System.out.println(newY);
+  
+  midX = (newX+x)/2;//wall array xcor
+  midY = (newY+y)/2;//wall array ycor
+  
+  //System.out.println(midX);
+  //System.out.println(midY);
+  
+  maze[midY][midX] = (cell) maze[midY][midX];//typecast wall to cell
+  maze[midY][midX].visit();//turn wall to visited cell
+
+  ret.visit();
+  path.add(ret);
+} 
+
+cell[][] getMaze() {
+  return maze;
 }
-*/
+
+void displayMaze() {
+  for ( int i = 0; i < maze.length; i++ ) {
+    for ( int j = 0; j < maze[0].length; j++ ) {
+      maze[i][j].displayCell();
+    }
+  }
+}
+
+boolean generated() {
+  return path.isEmpty();
+}
+
+  void makeExit() { 
+    boolean bool = true; 
+    while (bool) { 
+      int rand1 = (int) (random(maze.length/2) + maze.length/2); 
+      int rand2 = (int) (random(maze[0].length/2) + maze[0].length/2); 
+      if (!(maze[rand1][rand2] instanceof wall)) { 
+        maze[rand1][rand2].setColor(color(0,256,256)); 
+        bool = false; 
+        exit = maze[rand1][rand2];
+      } 
+    }
+  }
+  
+cell getExit() {
+  return exit;
+}
+
+}

@@ -38,6 +38,10 @@ class cell {
     rect(x, y, 16, 16);
   }
   
+  boolean equals2 ( cell a) {
+    return (x == a.getX()) && (y == a.getY());
+  }
+  
   protected color getColor() { 
     return c;   
   }
@@ -54,12 +58,13 @@ class cell {
   protected int getY() {
     return y;
   }
-  
+
   private void visit() {
     unvisited = false;
-    setColor( color(0,0,256) );
+    setColor(color(0,0,256));
   }
-  
+ 
+
   private void backTrack() {
     setColor( color(0,256,0) );
   }
