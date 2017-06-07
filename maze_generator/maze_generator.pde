@@ -64,6 +64,16 @@ void draw() {
     else {
       //background(0);
       maze.displayMaze();
+      loadPixels();
+      for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+          int dist = (int) Math.sqrt(((dude.getX()-j)*(dude.getX()-j))+((dude.getY()-i)*(dude.getY()-i)));
+          pixels[i*width + j] = color(red(pixels[i*width + j])/(dist*dist/350), 
+                                      blue(pixels[i*width + j])/(dist*dist/350),
+                                      green(pixels[i*width + j])/(dist*dist/350));
+        }
+      }
+      updatePixels();
       drawClock();
       dude.printChar();
       textSize(16);

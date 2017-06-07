@@ -83,7 +83,9 @@ void generate() {
     y = newY;
   }
   if (!path.isEmpty()) {
-    current = path.get((int) (Math.random() * path.size()));
+    current = path.get(path.size()*3/4);
+    //current = path.get(0);
+    //current = path.get((int) (Math.random() * path.size()));
     //current = path.get(path.size() - 1);
   }  
 }
