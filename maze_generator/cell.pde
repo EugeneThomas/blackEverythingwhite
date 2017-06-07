@@ -3,6 +3,7 @@ class cell {
   protected boolean unvisited;
   protected int x;
   protected int y;
+  boolean dropped;
   
   cell() {
     
@@ -32,6 +33,7 @@ class cell {
     x = xpos;
     y = ypos;
     unvisited = v;
+    dropped = false;
     c = color(0, greenType, 0);
     fill(c);
     noStroke();
@@ -76,10 +78,8 @@ class cell {
   public boolean equals(cell c) { 
     boolean bool1 = red(c.getColor()) == red(getColor()); 
     boolean bool2 = green(c.getColor()) == green(getColor()); 
-    boolean bool3 = bool1 && bool2;
-    boolean bool4 = blue(c.getColor()) == blue(getColor()); 
-    boolean bool5 = bool3 && bool4; 
-    return bool5; 
+    boolean bool3 = blue(c.getColor()) == blue(getColor()); 
+    return bool1 && bool2 && bool3; 
   } 
   
   public cell maxGreen(cell c) { 
@@ -104,6 +104,18 @@ class cell {
     fill(c);
     noStroke();
     rect(x, y, 16, 16);
+  }
+  
+  void drop() {
+    dropped = true;
+  }
+  
+  void undrop() {
+    dropped = false;
+  }
+  
+  boolean dropped() {
+    return dropped;
   }
   
 }

@@ -24,6 +24,7 @@ void setup() {
   clockCenterX = (int) (width / 2.5);
   clockCenterY = 400;
   liveStr = "" + dude.getLives(); 
+  
 }
 
 
@@ -64,6 +65,7 @@ void draw() {
     else {
       //background(0);
       maze.displayMaze();
+      /*
       loadPixels();
       for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
@@ -74,6 +76,7 @@ void draw() {
         }
       }
       updatePixels();
+      */
       drawClock();
       dude.printChar();
       textSize(16);
