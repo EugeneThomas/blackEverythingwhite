@@ -19,7 +19,7 @@ void setup() {
   size(336, 450);
   dude = new character();
   chosen = false;
-  level = 1;
+  level = 3;
   levelsPassed = 0;
   clockCenterX = (int) (width / 2.5);
   clockCenterY = 400;
@@ -44,9 +44,10 @@ void draw() {
       maze = new MazeEllers(width, height-114);
     }
     
-    else if ( level == 3 ) {
-      maze = new MazePrim(width, height-114);
+    else {
+      maze = new MazePrim(width, height-114, level);
     }
+    
     chosen = true;
   }
   
@@ -91,9 +92,12 @@ void draw() {
       else if (level == 2) { 
         text("ELLER'S ALGORITHM", 20, 360);
       } 
-      else if (level == 3) { 
+      else if (level >= 6) { 
         text("PRIM'S ALGORITHM", 30, 360);
       } 
+      else {
+        text("TREE GROWING ALGO", 10, 360);
+      }
       fill(0);
       //System.out.println( (dude.getX() - 8) + " , " + (dude.getY() - 8) );
       //System.out.println( (maze.getExit().getX()) + " , " + (maze.getExit().getY()) );

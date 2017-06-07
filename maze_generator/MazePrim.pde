@@ -15,10 +15,12 @@ class MazePrim implements GenMaze {
   int numRow;
   int numCol;
   cell exit;
+  int level;
 
- MazePrim(int w, int h) {
+ MazePrim(int w, int h, int lev) {
   //start at upperleft hand corner
   //init vars
+  level = lev;
   numRow = h / 16;
   numCol = w / 16;
   maze = new cell[numRow][numCol];
@@ -83,10 +85,14 @@ void generate() {
     y = newY;
   }
   if (!path.isEmpty()) {
+    if (level == 3)
     current = path.get(path.size()*3/4);
-    //current = path.get(0);
-    //current = path.get((int) (Math.random() * path.size()));
-    //current = path.get(path.size() - 1);
+    else if (level == 4)
+    current = path.get(0);
+    else if (level == 5)
+    current = path.get(path.size() - 1);
+    else
+    current = path.get((int) (Math.random() * path.size()));
   }  
 }
 boolean hasNeighbors() {
